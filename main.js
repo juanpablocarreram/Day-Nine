@@ -1,14 +1,18 @@
 const rainDropTop = document.querySelectorAll(".rainDropTop");
 const rainDropMiddle = document.querySelectorAll(".rainDropMiddle");
 const rainDropBottom = document.querySelectorAll(".rainDropBottom");
+const element= document.querySelector(".star");
 let exponentialPositionTop = 0;
 let exponentialPositionBottom = 20;
 let exponentialDelayMiddle = .1;  
 let exponentialDelay = 0;
 let i = 0;
-let startTime = 0;
 let repetitions = 0;
-for(let i= 0; i<rainDropTop.length; i++){
+let counterIteration = 0;
+
+
+/* For loop for rainDrop iteration of distance */
+for(i= 0; i<rainDropTop.length; i++){
     rainDropBottom[i].style.left = exponentialPositionBottom + "px";
     rainDropTop[i].style.right = exponentialPositionTop + "px";
     rainDropMiddle[i].style.left = exponentialPositionTop + "px";
@@ -21,20 +25,24 @@ for(let i= 0; i<rainDropTop.length; i++){
     exponentialPositionBottom = exponentialPositionBottom + 80;
     
 }
-function appearStar(){
-    i++;
-    console.log(i);
+/* End of For loop */
 
+function animationChange(){
+    repetitions++;
+    console.log(repetitions);
+    
+if(repetitions > 9){
+    element.style.animation = "starAppear 1s infinite linear";
+    repetitions = 0;
 }
-function getTime(){
-    while(true){
-        let currentTime = performance.now();
-        let elapsedTime = currentTime - startTime;
-        if (currentTime >= 1200){
-            repetitions++;
-            console.log(repetitions);
-        }
-    } 
+
+    
 }
-rainDropTop[3].addEventListener("animationend", appearStar);
-getTime();
+
+function endAnimation(){
+    element.style.animation = "";
+}
+rainDropTop[0].addEventListener("animationiteration", animationChange);
+element.addEventListener("animationiteration",endAnimation )
+
+

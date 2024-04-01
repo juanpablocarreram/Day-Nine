@@ -184,16 +184,17 @@ span{
 }
 .star{
     z-index:-8;
-    background-color:red;
+    background-color:yellow;
     width:20px;
     border-radius:50%;
     position:absolute;
     height:20px;
-    right:40%;
-    top:40%;
+    left:-5%;
+    top:60%;
     display:flex;
     align-items:center;
     justify-content:center;
+    box-shadow:0px 0px 10px yellow;
 }
 .star::after{
 position:absolute;
@@ -204,9 +205,55 @@ top:-32px;
 transform:rotate(80deg);
 height:100px;
 clip-path:polygon(50% 0, 100% 100%, 0 100%);
-background:linear-gradient(0deg, yellow, red);
+background:linear-gradient(0deg, red, yellow);
+z-index:-5;
 
 }
+.beak{
+    width:10px;
+    height:10px;
+    background-color:yellow;
+    clip-path:polygon(50% 0, 100% 100%, 0 100%);
+    position:absolute;
+    box-shadow:0px 0px 10px yellow;
+}
+.star :first-child{
+    top:-8px;
+}
+.star :nth-child(2){
+    right:-7px;
+    top:2px;
+    transform:rotateZ(80deg);
+}
+.star :nth-child(3){
+    left:-7px;
+    top:2px;
+    transform:rotateZ(-80deg);
+}
+.star :nth-child(4){
+    right:-5px;
+    height:20px;
+    bottom:-7px;
+    transform:rotateZ(140deg);
+    width:20px;
+}
+.star :nth-child(5){
+    left:-5px;
+    height:20px;
+    bottom:-7px;
+    width:20px;
+    transform:rotateZ(-140deg);
+}
+@keyframes starAppear{
+0%{
+transform:translate(0px, 0px)
+}
+100%{
+transform:translate(750px,-50px);
+}
+
+}
+
 @keyframes moonAppear {
 0%{ top:380px;
     left:90px;
