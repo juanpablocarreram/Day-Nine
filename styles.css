@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital@1&family=Inter:wght@100..900&family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    font-family:"Inter", serif;
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+body{
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+}
+.container{
+    width:600px;
+    height:600px;
+    border-radius:20px;
+    display:flex;
+    flex-flow:column nowrap;
+    overflow:hidden;
+    box-shadow:0px 0px 10px black;
+}
+.picture{
+    flex:6;
+  background-color:rgb(31, 22, 71);
+   overflow:hidden;
+   position:relative;
+   z-index:-9;
+}
+.mountain{
+    position:absolute;
+    width:400px;
+    background-color:white;
+    height:400px;
+    bottom:-290px;
+    border-radius:50%;
+
+}
+.weather{
+    flex:2;
+}
+.mountainLight{
+    background-color:rgb(55, 75, 127);
+    z-index:-6;
+    box-shadow:0px 0px 10px rgb(55, 75, 127);
+}
+.mountainDark{
+    z-index:-7;
+    bottom:-300px;
+    width:490px;
+    height:450px;
+    background-color:rgb(29, 40, 67);
+    box-shadow:0px 0px 10px rgb(29, 40, 67);
+}
+.mountainDarkOne{
+    left:-70px;
+}
+.mountainDarkTwo{
+    right:-120px
+}
+.picture .mountainLight:first-child{
+    left:-140px;
+    bottom:-310px;
+
+
+}
+.picture .mountainLight:nth-child(2){
+    left:100px;
+    bottom:-280px;
+
+}
+.picture .mountainLight:nth-child(3){
+    right:-140px;
+    bottom:-310px;
+
+}
+.moon{
+    position:absolute;
+    height:100px;
+    width:100px;
+    border-radius:50%;
+    z-index:-8;
+    transform:translate(-30,300px);
+    background-color:rgb(219, 215, 127);
+    box-shadow:yellow 0px 0px 20px;
+    animation:moonAppear ease 1s forwards;
+}
+.point{
+    position:absolute;
+    border-radius:50%;
+    width:20px;
+    height:20px;
+    background-color:rgb(192, 188, 121);
+}
+.moon :first-child{
+    left:20px;
+    top:20px
+}
+.moon :nth-child(2){
+    left:60px;
+    width:15px;
+    height:15px;
+    top:10px
+}
+.moon :nth-child(3){
+    left:20px;
+    width:15px;
+    height:15px;
+    top:45px
+}
+.moon :nth-child(4){
+    left:60px;
+    width:15px;
+    height:15px;
+    top:65px
+}
+.rainDrop{
+    position:absolute;
+    background-color: rgb(0, 119, 255);
+    border-radius:50%;
+    top:-100px;
+    transform:rotateZ(20deg);
+}
+.rainDropTop{
+    z-index:0;
+    height:16px;
+    width:16px;
+}
+.rainDropMiddle{
+    z-index:-1;
+    height:8px;
+    width:8px;
+    background-color:rgb(7, 70, 172);
+}
+.rainDropBottom{
+    width:5px;
+    height:5px;
+    background-color:rgb(27, 27, 158);
+    z-index:-2;
+}
+.rainDrop::after{
+    content:"";
+    position:absolute;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    background-color: rgb(0, 119, 255);
+    top:-80%;
+    left:5%;
+    width:90%;
+    height:110%;
+}
+.rainDropMiddle:after{
+    background-color:rgb(38, 83, 156);
+}
+.rainDropBottom::after{
+    background-color: rgb(27, 27, 158);
+}
+.weather{
+display:flex;
+flex-flow:row nowrap;
+justify-items:flex-start;
+align-items:center;
+padding:30px;
+font-size:1.3rem;
+gap:30px;
+}
+.weather > p{
+    font-size:6rem;
+    font-weight:300;
+}
+.weatherText{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-flow:column nowrap;
+    gap:5px;
+    color:rgb(107, 107, 109);
+}
+.weeklyWeather{
+    margin-left:auto;
+}
+span{
+    padding:10px;
+    font-weight:900;
+    color:rgb(33, 33, 49);
+}
+.star{
+    z-index:-8;
+    background-color:red;
+    width:20px;
+    border-radius:50%;
+    position:absolute;
+    height:20px;
+    right:40%;
+    top:40%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.star::after{
+position:absolute;
+content:"";
+width:40px;
+left:-50px;
+top:-32px;
+transform:rotate(80deg);
+height:100px;
+clip-path:polygon(50% 0, 100% 100%, 0 100%);
+background:linear-gradient(0deg, yellow, red);
+
+}
+@keyframes moonAppear {
+0%{ top:380px;
+    left:90px;
+}
+100%{top:80px;
+    left:120px;}
+}
+@keyframes rainDrops{
+    0%{
+        transform:translate(0, 0) scale(100%,100%) rotateZ(20deg);
+    }
+    94%{
+        transform:translate(-70px, 495px) scale(100%,100%) rotateZ(20deg);
+    }
+    100%{
+        transform:translate(-70px, 495px) scale(170%,10%) rotateZ(20deg);
+    }
+}
